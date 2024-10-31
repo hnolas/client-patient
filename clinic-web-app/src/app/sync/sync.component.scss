@@ -1,0 +1,22 @@
+.sync-container {
+  padding: 20px;
+}
+
+.records-container {
+  max-height: 400px; /* Adjust as needed */
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+button {
+  margin-top: 20px;
+}
+
+mat-spinner {
+  margin-top: 20px;
+}

@@ -1,0 +1,33 @@
+.sync-container {
+  padding: 20px;
+}
+
+.records-container {
+  max-height: 400px; /* Adjust as needed */
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.sync-popup {
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.sync-popup h3 {
+  margin-top: 0;
+}
+
+.sync-success {
+  margin-top: 20px;
+  color: green;
+}
+
+button {
+  margin-right: 10px;
+}
+
+hr {
+  margin: 10px 0;
+}

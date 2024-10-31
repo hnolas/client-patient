@@ -1,0 +1,37 @@
+<div class="sync-container">
+  <h2>Clinical Notes for Patient: {{ patientName }}</h2>
+
+  <!-- Display all patient notes -->
+  <div class="records-container">
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let note of patientData.notes">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ note.visitNumber }} - Date: {{ note.date }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+          <p><strong>Reason for Visit:</strong> {{ note.reasonForVisit }}</p>
+          <p><strong>History:</strong> {{ note.history }}</p>
+          <p><strong>Vital Signs:</strong> {{ note.vitalSigns }}</p>
+          <p><strong>Physical Exam:</strong> {{ note.physicalExam }}</p>
+          <p><strong>Assessment:</strong> {{ note.assessment }}</p>
+          <p><strong>Plan:</strong> {{ note.plan }}</p>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <!-- Sync Confirmation Popup -->
+  <div *ngIf="showSyncPopup" class="sync-popup">
+    <h3>Sync Request</h3>
+    <p>The clinic wants to sync your data. Do you want to sync?</p>
+    <button mat-raised-button color="primary" (click)="confirmSync()">Yes, Sync Now</button>
+    <button mat-raised-button color="warn" (click)="dismissSync()">No, Dismiss</button>
+  </div>
+
+  <!-- Success message after syncing -->
+  <div *ngIf="dataSynced" class="sync-success">
+    <p>Data synced successfully!</p>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+<div class="sync-container">
+  <h2>Clinical Notes for Patient: {{ patientName }}</h2>
+
+  <!-- Sync button -->
+  <div>
+    <button mat-raised-button color="primary" (click)="initiateSyncRequest()" [disabled]="loading">
+      Sync Data
+    </button>
+  </div>
+
+  <!-- Loading spinner while syncing -->
+  <div *ngIf="loading">
+    <mat-spinner></mat-spinner>
+    <p>Syncing data, please wait...</p>
+  </div>
+
+  <!-- Display all notes after syncing -->
+  <div *ngIf="syncCompleted && !loading">
+    <h3>All Medical Records</h3>
+
+    <!-- Scrollable container -->
+    <div class="records-container">
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let note of allNotes">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ note.visitNumber }} - Date: {{ note.date }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div>
+            <p><strong>Reason for Visit:</strong> {{ note.reasonForVisit }}</p>
+            <p><strong>History:</strong> {{ note.history }}</p>
+            <p><strong>Vital Signs:</strong> {{ note.vitalSigns }}</p>
+            <p><strong>Physical Exam:</strong> {{ note.physicalExam }}</p>
+            <p><strong>Assessment:</strong> {{ note.assessment }}</p>
+            <p><strong>Plan:</strong> {{ note.plan }}</p>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+
+    <!-- Show add note button after syncing -->
+    <button mat-raised-button color="accent" (click)="showAddNote()">
+      Add Note
+    </button>
+  </div>
+
+  <!-- Add note form -->
+  <div *ngIf="showAddNoteForm">
+    <h4>Add a New Note</h4>
+    <p><strong>Date:</strong> {{ newNote.date }}</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Visit Number</mat-label>
+      <input matInput [(ngModel)]="newNote.visitNumber" placeholder="Enter visit number" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Reason for Visit</mat-label>
+      <textarea matInput [(ngModel)]="newNote.reasonForVisit" placeholder="Enter reason for visit"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>History</mat-label>
+      <textarea matInput [(ngModel)]="newNote.history" placeholder="Enter history"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Vital Signs</mat-label>
+      <textarea matInput [(ngModel)]="newNote.vitalSigns" placeholder="Enter vital signs"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Physical Exam</mat-label>
+      <textarea matInput [(ngModel)]="newNote.physicalExam" placeholder="Enter physical exam findings"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Assessment</mat-label>
+      <textarea matInput [(ngModel)]="newNote.assessment" placeholder="Enter assessment"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Plan</mat-label>
+      <textarea matInput [(ngModel)]="newNote.plan" placeholder="Enter plan"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="submitNote()">Submit Note</button>
+  </div>
+</div>
