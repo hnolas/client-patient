@@ -1,0 +1,11 @@
+# Ignore node_modules for Angular apps
+clinic-web-app/node_modules/
+patient-web-app/node_modules/
+
+# Ignore build directories
+clinic-web-app/dist/
+patient-web-app/dist/
+
+# Ignore Python cache
+africa_client_patient/__pycache__/
+africa_client_patient/*.pyc
