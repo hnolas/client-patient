@@ -72,9 +72,10 @@ To start the Angular project, follow these steps:
 
    This will automatically open the Angular app in your default browser at `http://localhost:4200`. If it doesn’t, you can manually visit this URL.
 
-3. **Note**: If you need to run the Angular app on a different port, specify the port as follows:
+3. **Note**: Run the clinic app on port 4300 and patient app on 4200:
    ```bash
-   ng serve --port 4201
+   ng serve --port 4300
+   ng serve --port 4200
    ```
 
 ### Python Project (FastAPI)
